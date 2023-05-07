@@ -50,7 +50,7 @@ package _00_Binary_Conversion;
 public class _04_NegativeBinaryNumbers {
     public static void main(String[] args) {
         /*
-         * Negative number to positive number
+         * Negative number to positive number 
          */
         byte b = (byte) 0b11111111;
         System.out.println(printBin(b));

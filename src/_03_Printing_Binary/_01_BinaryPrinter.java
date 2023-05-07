@@ -10,9 +10,9 @@ public class _01_BinaryPrinter {
 
     public void printByteBinary(byte b) {
         // We first want to print the bit in the one's place
-
+System.out.println(b | 1);
         // Shift b seven bits to the right
-
+//promote the byte to become an int as only ints or longs can be shifted
         // Use the & operator to "mask" the bit in the one's place
         // This can be done by "anding" (&) it with the value of 1
 

@@ -29,13 +29,13 @@ import org.junit.jupiter.api.Test;
 public class _02_Rotate {
     
     int rotateLeft(int value, int rotateAmount) {
-        return -1;
+        return (value << rotateAmount) | (value >>>(Integer.SIZE - rotateAmount));
     }
     
     int rotateRight(int value, int rotateAmount) {
-        return -1;
+        return (value >>> rotateAmount) | (value <<(Integer.SIZE - rotateAmount));
     }
-    
+     
     @Test
     void testRotateLeft() {
         int i = -8;

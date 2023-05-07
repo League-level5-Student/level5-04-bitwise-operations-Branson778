@@ -35,7 +35,7 @@ package _01_Bit_Shifting;
  * >> and >>> are the same for positive numbers.
  */
 public class _01_IntroToBitShifting {
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
         int i = 0b00010011;
         System.out.println("i is ........: " + printBin(i));
         

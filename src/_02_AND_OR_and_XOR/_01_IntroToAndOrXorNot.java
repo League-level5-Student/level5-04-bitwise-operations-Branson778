@@ -54,7 +54,7 @@ package _02_AND_OR_and_XOR;
 public class _01_IntroToAndOrXorNot {
     public static void main(String[] args) {
         int num = 5 & 9;
-        System.out.println("5 & 9 = " + num);
+        System.out.println("5 & 9 = " + num); 
 
         num = 5 | 9;
         System.out.println("5 | 9 = " + num);
