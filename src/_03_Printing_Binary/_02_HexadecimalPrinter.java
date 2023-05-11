@@ -66,7 +66,7 @@ public class _02_HexadecimalPrinter implements ActionListener {
         if (binaryStr.length() != 8) {
             return "-";
         }
-
+   
         return "-";
     }
     
