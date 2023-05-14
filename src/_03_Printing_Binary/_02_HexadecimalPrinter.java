@@ -52,11 +52,67 @@ public class _02_HexadecimalPrinter implements ActionListener {
      * You don't have to handle negative numbers unless you want the challenge!
      */
     String binaryToHex(String binaryStr) {
-        return "-";
+    	String[] parts = new String[binaryStr.length()/4];
+       for (int i = (binaryStr.length()-1); i >= 0; i-=4) {
+    	   String part = binaryStr.substring(i-3, i+1);
+    	  parts[i/4] = binaryToDec(part);
+    	   System.out.println(parts[i/4]);
+		
+	}
+       String finalt = "";
+       for (int i = 0; i < parts.length; i++) {
+    	   if(Integer.parseInt(parts[i])>=0 && Integer.parseInt(parts[i])<=9){
+    		   finalt = finalt + parts[i];   
+    	   }
+    	   else if(parts[i].equals("10")) {
+			finalt = finalt + "A";
+		}
+		else if(parts[i].equals("11")) {
+			finalt = finalt + "B";
+		}
+		else if(parts[i].equals("12")) {
+			finalt = finalt + "C";
+		}
+		else if(parts[i].equals("13")) {
+			finalt = finalt + "D";
+		}
+		else if(parts[i].equals("14")) {
+			finalt = finalt + "E";
+		}
+		else if(parts[i].equals("15")) {
+			finalt = finalt + "F";
+		}
+		else {
+			
+		}
+	}
+    	return finalt;
     }
     
     String binaryToDec(String binaryStr) {
-        return "-";
+        Integer result = 1;
+        Integer[] resultt = new Integer[binaryStr.length()];
+        for (int i = 0; i < binaryStr.length(); i++) {
+			if(binaryStr.charAt(i)!=' ') {
+				if(i!=0) {
+					resultt[i] = result*2;
+				}
+				else {
+					resultt[i] = result;
+				}
+				result = resultt[i];
+				continue;
+			}
+			
+		}
+        Integer finalt = 0;
+        for (int i = 0; i < resultt.length; i++) {
+			if(binaryStr.charAt(resultt.length-(1+i))=='0') {
+				resultt[i]=0;
+			}
+			finalt += resultt[i];
+		}
+    	return String.valueOf(finalt);
     }
 
     /*
@@ -66,8 +122,22 @@ public class _02_HexadecimalPrinter implements ActionListener {
         if (binaryStr.length() != 8) {
             return "-";
         }
-   
-        return "-";
+    	String[] parts = new String[binaryStr.length()/4];
+        for (int i = (binaryStr.length()-1); i >= 0; i-=4) {
+     	   String part = binaryStr.substring(i-3, i+1);
+     	  parts[i/4] = binaryToDec(part);
+     	   System.out.println(parts[i/4]);
+ 		
+ 	}
+        String finalt = "";
+        for (int i = 0; i < parts.length; i++) {
+     	   if(Integer.parseInt(parts[i])>=0 && Integer.parseInt(parts[i])<=255){
+     		   //finalt = finalt + Character.toString((char) parts[i]);
+     		   //convert int to ascii character here
+     	   }
+
+ 	}
+     	return finalt;
     }
     
     public static void main(String[] args) {
