@@ -122,22 +122,7 @@ public class _02_HexadecimalPrinter implements ActionListener {
         if (binaryStr.length() != 8) {
             return "-";
         }
-    	String[] parts = new String[binaryStr.length()/4];
-        for (int i = (binaryStr.length()-1); i >= 0; i-=4) {
-     	   String part = binaryStr.substring(i-3, i+1);
-     	  parts[i/4] = binaryToDec(part);
-     	   System.out.println(parts[i/4]);
- 		
- 	}
-        String finalt = "";
-        for (int i = 0; i < parts.length; i++) {
-     	   if(Integer.parseInt(parts[i])>=0 && Integer.parseInt(parts[i])<=255){
-     		   //finalt = finalt + Character.toString((char) parts[i]);
-     		   //convert int to ascii character here
-     	   }
-
- 	}
-     	return finalt;
+     	return (char) Integer.parseInt(binaryToDec(binaryStr))+"";
     }
     
     public static void main(String[] args) {
