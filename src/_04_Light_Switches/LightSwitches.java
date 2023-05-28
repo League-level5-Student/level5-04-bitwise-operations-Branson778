@@ -55,8 +55,9 @@ public class LightSwitches implements GameControlScene {
 	 */
 	boolean isLightOn(int index) {
 		String of = Integer.toBinaryString(lightsOnOff);
-		System.out.println(of.length());
-		System.out.println(of);
+		while(of.length()<8) {
+			of ='0'+ of;
+		}
 		if (of.length() > index && of.charAt(index) == '1') {
 			return true;
 		} else {
@@ -70,17 +71,29 @@ public class LightSwitches implements GameControlScene {
 	 */
 	void turnLightOn(int index) {
 		String of = Integer.toBinaryString(lightsOnOff);
-		of = "0000000" + of;
+		while(of.length()<8) {
+			of ='0'+ of;
+		}
+		//System.out.println(of+" OF VALUE");
+		//index = 8 - index;
 		if (of.length() > index) {
 			if (index != 0) {
-				String pt1 = of.substring(0, index - 1);
+				String pt1 = of.substring(0, index);
 				String pt2 = of.substring(index + 1);
-				lightsOnOff = Integer.parseInt(pt1 + '1' + pt2);
+				lightsOnOff = Integer.parseInt(pt1 + '1' + pt2,2);
 			} else {
 				String pt2 = of.substring(index + 1);
-				lightsOnOff = Integer.parseInt('1' + pt2);
+				lightsOnOff = Integer.parseInt('1' + pt2,2);
 			}
 		}
+		//System.out.println(of.length() + " LENGTH");
+		//System.out.println(of + " BINARY VALUE");
+		//System.out.println(lightsOnOff + " REAL VALUE");
+		String check = Integer.toBinaryString(lightsOnOff);
+		while(check.length()<8) {
+			check ='0'+ check;
+		}
+		//System.out.println(check);
 	}
 
 	/*
@@ -89,17 +102,29 @@ public class LightSwitches implements GameControlScene {
 	 */
 	void turnLightOff(int index) {
 		String of = Integer.toBinaryString(lightsOnOff);
-		of = "0000000" + of;
+		while(of.length()<8) {
+			of ='0'+ of;
+		}
+		//System.out.println(of+" OF VALUE");
+		//index = 8 - index;
 		if (of.length() > index) {
 			if (index != 0) {
-				String pt1 = of.substring(0, index - 1);
+				String pt1 = of.substring(0, index);
 				String pt2 = of.substring(index + 1);
-				lightsOnOff = Integer.parseInt(pt1 + '0' + pt2);
+				lightsOnOff = Integer.parseInt(pt1 + '0' + pt2,2);
 			} else {
 				String pt2 = of.substring(index + 1);
-				lightsOnOff = Integer.parseInt('0' + pt2);
+				lightsOnOff = Integer.parseInt('0' + pt2,2);
 			}
 		}
+		//System.out.println(of.length() + " LENGTH");
+		//System.out.println(of + " BINARY VALUE");
+		//System.out.println(lightsOnOff + " REAL VALUE");
+		String check = Integer.toBinaryString(lightsOnOff);
+		while(check.length()<8) {
+			check ='0'+ check;
+		}
+		//System.out.println(check);
 	}
 
 	/*
@@ -108,7 +133,11 @@ public class LightSwitches implements GameControlScene {
 	 */
 	void turnMultiLightsOn(int lightsBitmap) {
 		String of = Integer.toBinaryString(lightsBitmap);
-		for (int i = 0; i < of.length(); i++) {
+		while(of.length()<8) {
+			of ='0'+ of;
+		}
+		System.out.println(of + " THE VALUE OF ON");
+		for (int i = of.length()-1; i >=0; i--) {
 			if (of.charAt(i) == '1') {
 				turnLightOn(i);
 			}
@@ -121,7 +150,11 @@ public class LightSwitches implements GameControlScene {
 	 */
 	void turnMultiLightsOff(int lightsBitmap) {
 		String of = Integer.toBinaryString(lightsBitmap);
-		for (int i = 0; i < of.length(); i++) {
+		while(of.length()<8) {
+			of ='0'+ of;
+		}
+		System.out.println(of + " THE VALUE OF OFF");
+		for (int i = of.length()-1; i >=0; i--) {
 			if (of.charAt(i) == '1') {
 				turnLightOff(i);
 			}
@@ -136,7 +169,15 @@ public class LightSwitches implements GameControlScene {
 	 */
 	void toggleLights(int lightsBitmap) {
 		String of = Integer.toBinaryString(lightsOnOff);
+		while(of.length()<8) {
+			of ='0'+ of;
+		}
 		String of2 = Integer.toBinaryString(lightsBitmap);
+		while(of2.length()<8) {
+			of2 ='0'+ of2;
+		}
+		//System.out.println(of + " Binary On Off");
+		System.out.println(of2 + " Bitmap Binary");
 		for (int i = 0; i < of.length(); i++) {
 			if (of.charAt(i) == '1' && of2.charAt(i) == '1') {
 				turnLightOff(i);
@@ -145,6 +186,7 @@ public class LightSwitches implements GameControlScene {
 				turnLightOn(i);
 			}
 		}
+		//System.out.println(Integer.toBinaryString(lightsOnOff) + " Binary On Off New Value");
 	}
 
 	void runLightSequence1() {
